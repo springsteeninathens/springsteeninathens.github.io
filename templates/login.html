@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="static/css/utilities.css">
+    <link rel="stylesheet" href="static/css/istyle.css">
+    <title>Σύνδεση</title>
+    <body>
+<div class="navbar">
+  <div class="container flex">
+      <h1 class="logo"><img src="static/img/mylogo1.png" height=12% width =26%></h1>
+      <nav>
+          <ul>{% if user.is_authenticated %}
+              <li><a href="/">Αρχική</a></li>
+              <li><a href="/logout">Αποσύνδεση</a></li>
+              {% else %}
+              <li><a href="/login">Σύνδεση</a></li>
+              <li><a href="/sign-up">Εγγραφή</a></li>
+              {% endif %}
+              
+          </ul>
+      </nav>
+  </div>
+</div>
+
+<form method="POST">
+  <h3 align="center">Σύνδεση</h3>
+  <div class="form-group">
+    <label for="email">Διεύθυνση email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Πληκτρολόγησε το email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Κωδικός</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Πληκτρολόγησε τον κωδικό"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Σύνδεση</button>
+</form>
+
+{% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %} {% for category, message in messages %} {% if category ==
+  'error' %}
+  <div class="alert alert-danger alter-dismissable fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% else %}
+  <div class="alert alert-success alter-dismissable fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+<section class="cloud bg-primary my-2 py-2">
+  <div class="container grid">
+      <div class="text-center">
+          <h2 class="lg">Συνδέσου τώρα για να αρχίσεις!!!</h2>
+          <p class="lead my-1">Αν δεν έχει λογαριασμό δημιούργησε τώρα</p>
+          <a href="/sign-up" class="btn btn-dark">Εγγραφή</a>
+      </div>
+      
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer bg-dark py-5">
+  <div class="container grid grid-3">
+      <div>
+          <h1>Python Quiz
+          </h1>
+          
+      </div>
+      <nav>
+          <ul>
+              <li><a href="/">Αρχική</a></li>
+              <li><a href="/login">Σύνδεση</a></li>
+              <li><a href="sign-up">Εγγραφή</a></li>
+          </ul>
+      </nav>
+      <div class="social">
+          <p>Copyright &copy; 2021 from Evangelos Gkiolas</p>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

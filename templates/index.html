@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="static/css/utilities.css">
+    <link rel="stylesheet" href="static/css/istyle.css">
+    <title>Python Quiz</title>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo"><img src="static/img/mylogo1.png" height=8% width =26%></h1>
+            <nav>
+                <ul>{% if user.is_authenticated %}
+                    <li><a href="/">Αρχική</a></li>
+                    <li><a href="/logout">Αποσύνδεση</a></li>
+                    {% else %}
+                    <li><a href="/login">Σύνδεση</a></li>
+                    <li><a href="/sign-up">Εγγραφή</a></li>
+                    {% endif %}
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Showcase -->
+    <section class="showcase">
+        <div class="container grid">
+            <div class="showcase-text">
+                <h1>
+                <img src="static/img/mylogo1.png" height=40% width =70%></h1>
+                <p>Δοκίμασε τις γνώσεις σου στη γλώσσα προγραμματισμού Python μέσω διασκεδαστικού quiz!!!</p>
+            </div>
+
+           
+        <div class="text-center">
+            <h2 class="lg">Είσαι έτοιμος;</h2>
+            <p class="lead my-1">Πάτα το κουμπί</p>
+            <a  class="btn btn-dark" onclick="quiz()">Πάμε</a>
+        </div>
+    </section> 
+
+    Stats 
+    <section class="stats">
+        <div class="container">
+            <h2 class="stats-heading text-center my-1">
+                To Python Quiz σε αριθμούς
+            </h2>
+
+            <div class="grid grid-3 text-center my-4">
+                <div>
+                    <i class="fas fa-server fa-3x"></i>
+                    <h3>60</h3>
+                    <p class="text-secondary">Συνολικά Ερωτήσεις</p>
+                </div>
+                <div>
+                    <i class="fas fa-upload fa-3x"></i>
+                    <h3>14</h3>
+                    <p class="text-secondary">Τυχαία επιλεγμένες σε κάθε quiz</p>
+                </div>
+                <div>
+                    <i class="fas fa-project-diagram fa-3x"></i>
+                    <h3>3</h3>
+                    <p class="text-secondary">Περίπου μήνες ανάπτυξης</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cli -->
+    <section class="cli">
+        <div class="container grid">
+            <img src="static/img/display.png" width=80% height=80%>
+            
+            <div class="card">
+                <h3>Μάθε παίζωντας. Τόσο απλά</h3>
+            </div>
+            <div class="card">
+                <h3>Δες την βελτίωσή σου μετά το τέλος κάθε quiz</h3>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer bg-dark py-5">
+        <div class="container grid grid-3">
+            <div>
+                <h1>Python Quiz
+                </h1>
+                
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Αρχική</a></li>
+                    <li><a href="/login">Σύνδεση</a></li>
+                    <li><a href="sign-up">Εγγραφή</a></li>
+                </ul>
+            </nav>
+            <div class="social">
+                <p>Copyright &copy; 2021 from Evangelos Gkiolas</p>
+            </div>
+        </div>
+    </footer>
+    <script src="static/js/home.js"></script>
+</body>
+</html>
